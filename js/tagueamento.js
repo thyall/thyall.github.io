@@ -5,12 +5,20 @@
 // para fazer a sua coleta.
 // Caso tenha alguma dúvida sobre o case, não hesite em entrar em contato.
 
+
+// Essa função é responsável pelo avaliação de eventos e visualização de páginas
 function coletaDados(categoria, acao, rotulo){
+
+    // Aqui está sendo enviado as informações da página ou exibição
+    // ao Google Analytics
     ga('send', {
         hitType: 'pageview',
         page: location.pathname
       });
 
+
+    // Aqui está sendo enviado as informações do evento ao Google Analytics
+    // Passando os atributos para o evento
     ga('send', {
         hitType: 'event',
         eventCategory: categoria,
@@ -19,9 +27,14 @@ function coletaDados(categoria, acao, rotulo){
       });
 }
 
-function coletaDadosForm(){
-    let acoes = ['nome', 'email', 'telefone', 'aceito'];
 
+// Essa função é responsável pelo avaliação de eventos dos campos do formulário
+function coletaDadosForm(){
+
+   // Criando array com cada campo presente no formulário
+   let acoes = ['nome', 'email', 'telefone', 'aceito'];
+
+   // percorrendo array e chamando o método de eventos para cada campo
    acoes.forEach(function(acao){
     ga('send', {
         hitType: 'event',
